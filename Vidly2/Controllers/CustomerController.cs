@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly2.Models;
+using Vidly2.ViewModels;
 
 namespace Vidly2.Controllers
 {
@@ -17,8 +18,20 @@ namespace Vidly2.Controllers
         // GET: Customer
         public ActionResult ListCustomer()
         {
-            var customerList = new Customer {Customers = customers};
+            var customerList = new CustomerViewModel {Customers = customers};
             return View(customerList);
+        }
+
+        public ActionResult DetailCustomer(int id)
+        {
+            foreach (var cus in customers)
+            {
+                if (cus.Id == id)
+                {
+                    return View(cus);
+                }
+            }
+            return HttpNotFound();
         }
     }
 }

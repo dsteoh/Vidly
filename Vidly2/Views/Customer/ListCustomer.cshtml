@@ -1,4 +1,4 @@
-﻿@model Vidly2.Models.Customer
+﻿@model Vidly2.ViewModels.CustomerViewModel
 @{
     ViewBag.Title = "ListCustomer";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -25,7 +25,7 @@ else
         <tbody>
         <tr class="active">
             <td>
-                @Html.ActionLink(cus.Name, "ListCustomer", "Customer", new {id= cus.Id}, null)
+                @Html.ActionLink(cus.Name, "DetailCustomer", "Customer", new {id= cus.Id}, null)
             </td>
         </tr>
         </tbody>
