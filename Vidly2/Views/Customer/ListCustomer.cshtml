@@ -1,4 +1,4 @@
-﻿@model Vidly2.ViewModels.CustomerViewModel
+﻿@model IEnumerable<Vidly2.Models.Customer>
 @{
     ViewBag.Title = "ListCustomer";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,7 +10,7 @@
     <th>Customer Name</th>
 </tr>
 </thead>
-@if (Model.Customers.Count == 0)
+@if (!Model.Any())
 {
     <tbody>
     <tr class="active">
@@ -20,7 +20,7 @@
 }
 else
 {
-    foreach(var cus in Model.Customers)
+    foreach(var cus in Model)
     {
         <tbody>
         <tr class="active">
