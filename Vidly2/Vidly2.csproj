@@ -227,6 +227,18 @@
     <Compile Include="Migrations\201801161010145_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>201801161010145_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801180935473_MembershipTypesCleanup.cs" />
+    <Compile Include="Migrations\201801180935473_MembershipTypesCleanup.Designer.cs">
+      <DependentUpon>201801180935473_MembershipTypesCleanup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801180940250_MembershipTypeNameSeeding.cs" />
+    <Compile Include="Migrations\201801180940250_MembershipTypeNameSeeding.Designer.cs">
+      <DependentUpon>201801180940250_MembershipTypeNameSeeding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801181533169_CustomerDobField.cs" />
+    <Compile Include="Migrations\201801181533169_CustomerDobField.Designer.cs">
+      <DependentUpon>201801181533169_CustomerDobField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -331,6 +343,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801161010145_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>201801161010145_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801180935473_MembershipTypesCleanup.resx">
+      <DependentUpon>201801180935473_MembershipTypesCleanup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801180940250_MembershipTypeNameSeeding.resx">
+      <DependentUpon>201801180940250_MembershipTypeNameSeeding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801181533169_CustomerDobField.resx">
+      <DependentUpon>201801181533169_CustomerDobField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

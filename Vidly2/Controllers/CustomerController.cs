@@ -1,19 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Vidly2.Models;
-using Vidly2.ViewModels;
+using System.Data.Entity;
 
 namespace Vidly2.Controllers
 {
     public class CustomerController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public CustomerController()
+        {
+            _context = new ApplicationDbContext();;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Customer
         public ActionResult ListCustomer()
         {
-            var customerList = GetCustomer();
+            var customerList = _context.Customers.Include(c => c.MembershipType).ToList(); //eager loading .Include(c => c.MembershipType)
             return View(customerList);
         }
 
@@ -27,20 +37,20 @@ namespace Vidly2.Controllers
             //    }
             //}
             //return HttpNotFound();
-            var customer = GetCustomer().SingleOrDefault(c => c.Id == id);
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();
             return View(customer);
         }
 
-        private IEnumerable<Customer> GetCustomer()
-        {
-            return new List<Customer>
-            {
-                new Customer() {Id = 1, Name = "Alex"},
-                new Customer() {Id = 2, Name = "John"}
-            };
+        //private IEnumerable<Customer> GetCustomer()
+        //{
+        //    return new List<Customer>
+        //    {
+        //        new Customer() {Id = 1, Name = "Alex"},
+        //        new Customer() {Id = 2, Name = "John"}
+        //    };
 
-        }
+        //}
     }
 }

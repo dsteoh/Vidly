@@ -3,6 +3,17 @@
     ViewBag.Title = "DetailCustomer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>@Model.Name</h2>
-
+@if (!Model.Dob.HasValue)
+{
+    <ul>
+        <li>Membership Type: @Model.MembershipType.Name</li>
+    </ul>
+}
+else
+{
+    <ul>        
+        <li>Membership Type: @Model.MembershipType.Name</li>
+        <li>Birthdate: @Model.Dob</li>
+    </ul>
+}

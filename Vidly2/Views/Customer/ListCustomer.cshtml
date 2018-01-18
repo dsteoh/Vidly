@@ -8,6 +8,7 @@
 <thead>
 <tr>
     <th>Customer Name</th>
+    <th>Membership Type</th>
 </tr>
 </thead>
 @if (!Model.Any())
@@ -27,6 +28,7 @@ else
             <td>
                 @Html.ActionLink(cus.Name, "DetailCustomer", "Customer", new {id= cus.Id}, null)
             </td>
+            <td>@cus.MembershipType.Name</td>
         </tr>
         </tbody>
     }
