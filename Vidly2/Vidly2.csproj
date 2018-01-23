@@ -239,9 +239,26 @@
     <Compile Include="Migrations\201801181533169_CustomerDobField.Designer.cs">
       <DependentUpon>201801181533169_CustomerDobField.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801200928554_MovieGenreTableUpdate.cs" />
+    <Compile Include="Migrations\201801200928554_MovieGenreTableUpdate.Designer.cs">
+      <DependentUpon>201801200928554_MovieGenreTableUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801220739344_GenresTableUpdate.cs" />
+    <Compile Include="Migrations\201801220739344_GenresTableUpdate.Designer.cs">
+      <DependentUpon>201801220739344_GenresTableUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801220843135_PopulateGenre.cs" />
+    <Compile Include="Migrations\201801220843135_PopulateGenre.Designer.cs">
+      <DependentUpon>201801220843135_PopulateGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801220845328_PopulateMovies.cs" />
+    <Compile Include="Migrations\201801220845328_PopulateMovies.Designer.cs">
+      <DependentUpon>201801220845328_PopulateMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -310,10 +327,11 @@
     <Content Include="Views\Customer\ListCustomer.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
     <Content Include="Views\Customer\DetailCustomer.cshtml" />
+    <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\DetailMovie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Movie\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -352,6 +370,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801181533169_CustomerDobField.resx">
       <DependentUpon>201801181533169_CustomerDobField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801200928554_MovieGenreTableUpdate.resx">
+      <DependentUpon>201801200928554_MovieGenreTableUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801220739344_GenresTableUpdate.resx">
+      <DependentUpon>201801220739344_GenresTableUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801220843135_PopulateGenre.resx">
+      <DependentUpon>201801220843135_PopulateGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801220845328_PopulateMovies.resx">
+      <DependentUpon>201801220845328_PopulateMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
