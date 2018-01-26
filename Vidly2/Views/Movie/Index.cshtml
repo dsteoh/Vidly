@@ -1,10 +1,11 @@
-﻿@using Vidly2.Controllers
+﻿@using System.Activities.Expressions
+@using Vidly2.Controllers
 @model IEnumerable<Vidly2.Models.Movie>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@Html.ActionLink("New Movie", "New", "Movie", new {@class="btn btn-primary"})
 <table class="table table-striped table-hover">
     <thead>
     <tr>

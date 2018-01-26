@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly2.Models;
 using System.Data.Entity;
+using Vidly2.ViewModels;
 
 namespace Vidly2.Controllers
 {
@@ -22,6 +23,15 @@ namespace Vidly2.Controllers
             _context.Dispose();
         }
 
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+            return View(viewModel);
+        }
         // GET: Movie
         public ActionResult Index()
         {

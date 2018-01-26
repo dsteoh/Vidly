@@ -6,8 +6,9 @@ using Vidly2.Models;
 
 namespace Vidly2.ViewModels
 {
-    public class CustomerViewModel
+    public class MovieFormViewModel
     {
-        public List<Customer> Customers { get; set; }
+        public IEnumerable<Genre> Genres { get; set; }
+        public Movie Movie { get; set; }
     }
 }
