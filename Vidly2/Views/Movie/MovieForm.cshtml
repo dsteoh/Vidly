@@ -1,11 +1,11 @@
 ﻿@using System.Web.UI.HtmlControls
 @model Vidly2.ViewModels.MovieFormViewModel
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = Model.Title;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Movie</h2>
+<h2>@Model.Title</h2>
 @using (Html.BeginForm("Save", "Movie"))
 {
     @Html.ValidationSummary()
@@ -16,7 +16,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Movie.ReleaseDate)
-        @Html.TextBoxFor(m => m.Movie.ReleaseDate, new { placeholder = "01 Jan 0001", @class = "form-control" })
+        @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0:d MMM yyyy}", new { placeholder = "01 Jan 0001", @class = "form-control" })
         @Html.ValidationMessageFor(m => m.Movie.ReleaseDate)
     </div>
     <div class="form-group">
@@ -30,6 +30,7 @@
         @Html.ValidationMessageFor(m => m.Movie.GenreId)
     </div>
     @Html.HiddenFor(m => m.Movie.Id)
+    @Html.AntiForgeryToken()
     <button class="btn btn-primary" type="submit">Save</button>
 }
 

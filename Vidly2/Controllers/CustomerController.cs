@@ -9,18 +9,16 @@ namespace Vidly2.Controllers
 {
     public class CustomerController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public CustomerController()
         {
             _context = new ApplicationDbContext();;
         }
-
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
-        }
-
+        }  
         public ActionResult New()
         {
             var membershipTypes = new CustomerFormViewModel
@@ -55,19 +53,16 @@ namespace Vidly2.Controllers
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
                 customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
             }
-
             _context.SaveChanges();
 
             return RedirectToAction("ListCustomer", customer);
         }
-
         // GET: Customer
         public ActionResult ListCustomer()
         {
             var customerList = _context.Customers.Include(c => c.MembershipType).ToList(); //eager loading .Include(c => c.MembershipType)
             return View(customerList);
         }
-
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
