@@ -11,6 +11,7 @@
     <tr>
         <th>Movie Title</th>
         <th>Genre</th>
+        <th></th>
     </tr>
     </thead>
     @if (!Model.Any())
@@ -27,8 +28,9 @@
         {
             <tbody>
             <tr class="active">
-                <td>@Html.ActionLink(movies.Name, "DetailMovie", "Movie", new {id= movies.Id}, null)</td>
+                <td>@Html.ActionLink(movies.Name, "Edit", "Movie", new {id= movies.Id}, null)</td>
                 <td>@movies.Genre.Name</td>
+                <td>@Html.ActionLink("Delete", "Delete", "Movie", new {id = movies.Id}, null)</td>
             </tr>
             </tbody>
         }

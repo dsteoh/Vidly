@@ -32,6 +32,27 @@ namespace Vidly2.Controllers
             };
             return View(viewModel);
         }
+        [HttpPost]
+        public ActionResult Save(Movie movie)
+        {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel()
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("New", viewModel);
+            }
+            if(movie.Id == 0)
+                _context.Movies.Add(movie);
+
+            _context.SaveChanges();
+
+            var movieList = _context.Movies.Include(c => c.Genre).ToList();
+            return View("Index", movieList);
+        }
+
         // GET: Movie
         public ActionResult Index()
         {
@@ -39,12 +60,36 @@ namespace Vidly2.Controllers
             return View(movieList);
         }
 
-        public ActionResult DetailMovie(int id)
+        public ActionResult Edit(int id)
         {
-            var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
             if (movie == null)
                 return HttpNotFound();
-            return View(movie);
+
+            var viewModel = new MovieFormViewModel()
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+            return View("New", viewModel);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+            {
+                HttpNotFound();
+            }
+            else
+            {
+                _context.Movies.Remove(movie);
+            }
+            _context.SaveChanges();
+
+            var movieList = _context.Movies.Include(m => m.Genre).ToList();
+            return View("Index", movieList);
         }
     }
 }

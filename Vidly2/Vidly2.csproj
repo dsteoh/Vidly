@@ -255,6 +255,18 @@
     <Compile Include="Migrations\201801220845328_PopulateMovies.Designer.cs">
       <DependentUpon>201801220845328_PopulateMovies.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801270851210_dbcleanup.cs" />
+    <Compile Include="Migrations\201801270851210_dbcleanup.Designer.cs">
+      <DependentUpon>201801270851210_dbcleanup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801280738377_RemoveDateAddedMovie.cs" />
+    <Compile Include="Migrations\201801280738377_RemoveDateAddedMovie.Designer.cs">
+      <DependentUpon>201801280738377_RemoveDateAddedMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801281508449_movieValidationClassUpdate.cs" />
+    <Compile Include="Migrations\201801281508449_movieValidationClassUpdate.Designer.cs">
+      <DependentUpon>201801281508449_movieValidationClassUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -262,6 +274,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -327,7 +340,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Customer\ListCustomer.cshtml" />
     <Content Include="Views\Shared\_Navbar.cshtml" />
-    <Content Include="Views\Customer\DetailCustomer.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
     <Content Include="Views\Movie\DetailMovie.cshtml" />
     <Content Include="Views\Customer\CustomerForm.cshtml" />
@@ -385,6 +397,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801220845328_PopulateMovies.resx">
       <DependentUpon>201801220845328_PopulateMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801270851210_dbcleanup.resx">
+      <DependentUpon>201801270851210_dbcleanup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801280738377_RemoveDateAddedMovie.resx">
+      <DependentUpon>201801280738377_RemoveDateAddedMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801281508449_movieValidationClassUpdate.resx">
+      <DependentUpon>201801281508449_movieValidationClassUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
