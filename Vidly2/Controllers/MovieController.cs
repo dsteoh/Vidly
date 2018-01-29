@@ -11,18 +11,16 @@ namespace Vidly2.Controllers
 {
     public class MovieController : Controller
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public MovieController()
         {
             _context = new ApplicationDbContext();
         }
-
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
         }
-
         public ActionResult MovieForm()
         {
             var viewModel = new MovieFormViewModel
@@ -37,7 +35,12 @@ namespace Vidly2.Controllers
         {
             if (!ModelState.IsValid)
             {
-                MovieForm();
+                var viewModel = new MovieFormViewModel()
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
             }
             if(movie.Id == 0)
                 _context.Movies.Add(movie);
@@ -55,14 +58,12 @@ namespace Vidly2.Controllers
             var movieList = _context.Movies.Include(c => c.Genre).ToList();
             return View("Index", movieList);
         }
-
         // GET: Movie
         public ActionResult Index()
         {
             var movieList = _context.Movies.Include(c => c.Genre).ToList();
             return View(movieList);
         }
-
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -76,7 +77,6 @@ namespace Vidly2.Controllers
             };
             return View("MovieForm", viewModel);
         }
-
         public ActionResult Delete(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
