@@ -8,6 +8,8 @@ namespace Vidly2.Controllers
 {
     public class HomeController : Controller
     {
+        [AllowAnonymous]
+        [OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)]
         public ActionResult Index()
         {
             return View();
